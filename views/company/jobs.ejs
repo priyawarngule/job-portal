@@ -1,0 +1,37 @@
+<%- include("navbar.ejs") %>
+<div class="container"> 
+    <h1 class="mt-4">Posted Jobs</h1>
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>action</th>
+                <th>sr.no</th>
+                <th>Job Title</th>
+                <th>Job Description</th>
+                <th>Job Type</th>
+                <th>Min Experience</th>
+                <th>Max Experience</th>
+                <th>Skill</th>
+                <th>Vacancies</th>
+                <th>Reference Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%  for(var i = 0; i<jobs.length;i++) { %>
+                <tr>
+                    <td>
+                    <a href="/company/deletejob/<%= jobs[i].job_id %>" class="btn btn-info">deletejob</a>    
+                    <a href="/company/editjob/<%= jobs[i].job_id %>" class="btn btn-primary">Edit</a> </td>
+                    <td><%= i+1 %></td>
+                    <td><%= jobs[i].job_title %></td>
+                    <td><%= jobs[i].job_description %></td>
+                    <td><%= jobs[i].job_type %></td>
+                    <td><%= jobs[i].min_experience %></td>
+                    <td><%= jobs[i].max_experience %></td>
+                    <td><%= jobs[i].skill %></td>
+                    <td><%= jobs[i].vacancies %></td>
+                    <td><a href="<%= jobs[i].refrence_link %>" target="_blank">Link</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>

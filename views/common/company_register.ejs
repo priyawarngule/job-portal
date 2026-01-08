@@ -1,0 +1,42 @@
+<%-include('navbar.ejs')%>
+<div class="container">>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>company register</h1>
+            <form action="/save_company" method="POST">
+                <div>
+                    <label >company name</label>
+                    <input type="text" class="form-control" name="company_name" placeholder="enter your company name" required>
+                </div>
+                 <div>
+                    <label >company_location</label>
+                    <input type="text" class="form-control" name="company_location" placeholder="enter your company location" required>
+                </div>
+                 <div>
+                    <label >hr name:</label>
+                    <input type="text" class="form-control" name="hr_name" placeholder="enter your hr name" required>
+                </div>
+                 <div>
+                    <label >hr designation</label>
+                    <input type="text" class="form-control" name="hr_designation" placeholder="enter your hr designation" required>
+                </div>
+                 <div>
+                    <label >hr mobile</label>
+                    <input type="text" class="form-control" name="hr_mobile" placeholder="enter your hr mobile" required>
+                </div>
+                <div>
+                    <label >email</label>
+                    <input type="email" class="form-control" name="company_email" placeholder="enter your email" required>
+                </div>
+                <div>
+                    <label >password</label>
+                    <input type="password" class="form-control" name="company_password" placeholder="enter your password" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary mt-3">register</button>
+                </div>
+            </form>
+        </div>
+    </div>                                                                                  
+
+</div>

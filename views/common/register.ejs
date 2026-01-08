@@ -1,0 +1,76 @@
+<%- include('navbar.ejs') %>
+
+<style>
+  /* Page-specific styles similar to login.ejs */
+  .auth-page {
+    min-height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #eef2f6 100%);
+    padding: 40px 0;
+  }
+  .auth-card {
+    max-width: 640px;
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(13,38,59,0.08);
+    overflow: hidden;
+  }
+  .auth-card .card-body {
+    padding: 2rem;
+  }
+  .auth-title { font-weight: 600; }
+</style>
+
+<main class="auth-page">
+  <div class="card auth-card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+          <h3 class="auth-title">Create an account</h3>
+          <p class="text-muted">Join the job portal — find jobs faster and manage your applications.</p>
+          <hr>
+        </div>
+        <div class="col-12 col-md-6">
+          <form action="/register_process" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="mobile" class="form-label">Mobile</label>
+              <input type="text" class="form-control" id="mobile" name="mobile" placeholder="0123456789" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" name="address" placeholder="City, Country" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Choose a secure password" required>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Register</button>
+
+            <div class="text-center mt-3">
+              <span class="text-muted">Already have an account?</span>
+              <a href="/login" class="ms-2">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('footer.ejs') %>

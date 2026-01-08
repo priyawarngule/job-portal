@@ -1,0 +1,51 @@
+<%-include("navbar.ejs")%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Post a Job</h1>
+            <form action="/company/post_job_process" method="POST">
+                <div>
+                    <label>Job Title</label>
+                    <input type="text" class="form-control" name="job_title" id="job_title" placeholder="Enter job title" required>
+                </div>
+                <div>
+                    <label>Job Description</label>
+                    <textarea class="form-control" name="job_description" id="job_description" placeholder="Enter job description" required></textarea>
+                </div>
+                <div>
+                    <label>Job type</label>
+                 <select class="form-control" name="job_type" id="job_type" required>
+                    <option value="fulltime">Full-time</option>
+                    <option value="parttime">Part-time</option>
+                    <option value="internship">Internship</option>
+                    <option value="contract">Contract</option>
+                    <option value="temporary">Temporary</option>
+                    </select>
+                </div>
+                <div>
+                    <label >Enter minimum experience(in years)</label>
+                    <input type="text" class="form-control" name="min_experience" id="min_experience" placeholder="Enter minimum experience" required>
+                </div> <div>
+                    <label >Enter maximum experience(in years)</label>
+                    <input type="text" class="form-control" name="max_experience" id="max_experience" placeholder="Enter maximum experience" required>
+                </div>
+                <div>
+                    <label>skill</label>
+                    <input type="text" class="form-control" name="skill" id="skill" placeholder="Enter skill" required>
+                </div>
+                <div>
+                    <label>Vacancies</label>
+                    <input type="text" class="form-control" name="vacancies" id="vacancies" placeholder="Enter number of vacancies" required>
+                </div>
+                <div>
+                    <label>referencr link</label>
+                    <input type="text" class="form-control" name="refrence_link" id="vacancies" placeholder="Enter number of vacancies" required>
+                </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Post Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include("footer.ejs")%>

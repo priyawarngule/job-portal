@@ -1,0 +1,43 @@
+<%-include("navbar.ejs")%>
+<!DOCTYPE html>
+<head>
+    <title>companies</title>
+
+</head>
+<body>
+    <form action="/company_login_process" method="POST">
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+
+                <h1>company login</h1>
+                <div>
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" name="company_email" id="email" placeholder="enter your email" required>
+                    </div>
+                    <div>
+                        <label for="password">password</label>
+                        <input type="password" class="form-control" name="company_password" id="password" placeholder="enter your password" required>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary mt-3">login</button>
+                    </div>
+<br><br>
+                    <div>
+                        <a href="/company_register">new company? register here</a>
+                    </div>
+
+                </div>
+</div>
+        </div>
+    </form>
+
+
+    <%-include("footer.ejs")%>
+                
+        

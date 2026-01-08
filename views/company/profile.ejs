@@ -1,0 +1,56 @@
+<%-include("navbar.ejs")%>
+<div class="container mt-4">
+  <div class="card shadow-lg p-4 rounded-4">
+    <div class="row">
+      <!-- Company Logo -->
+      <div class="col-md-3 text-center">
+        <% if (company.logo) { %>
+          <img src="/uploads/<%= company.logo %>" alt="Company Logo" class="img-fluid rounded-circle mb-3" style="width:150px; height:150px; object-fit:cover;">
+        <% } else { %>
+          <img src="/images/default-company.png" alt="Default Logo" class="img-fluid rounded-circle mb-3" style="width:150px; height:150px; object-fit:cover;">
+        <% } %>
+        <h5 class="fw-bold"><%= company.name %></h5>
+        <p class="text-muted"><%= company.industry %></p>
+      </div>
+
+      <!-- Company Details -->
+      <div class="col-md-9">
+        <h4 class="fw-bold mb-3">Company Information</h4>
+        <table class="table table-borderless">
+          <tr>
+            <th>Company Name:</th>
+            <td><%= company.name %></td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td><%= company.email %></td>
+          </tr>
+          <tr>
+            <th>Phone:</th>
+            <td><%= company.phone %></td>
+          </tr>
+          <tr>
+            <th>Address:</th>
+            <td><%= company.address %></td>
+          </tr>
+          <tr>
+            <th>Website:</th>
+            <td><a href="<%= company.website %>" target="_blank"><%= company.website %></a></td>
+          </tr>
+          <tr>
+            <th>Description:</th>
+            <td><%= company.description %></td>
+          </tr>
+        </table>
+
+        <div class="d-flex gap-2 mt-3">
+          <a href="/company/edit_profile/<%= company.company_id %>" class="btn btn-primary">Edit Profile</a>
+          <a href="/company/post_job" class="btn btn-success">Post New Job</a>
+          <a href="/company/jobs" class="btn btn-info text-white">View Posted Jobs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("footer.ejs")%>

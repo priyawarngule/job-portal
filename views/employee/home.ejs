@@ -1,0 +1,78 @@
+
+  <%-include('navbar.ejs')%>
+  <!-- 👤 Profile Header -->
+  <div class="profile-header">
+    <img src="<%= employee.profile_pic || 'https://www.svgrepo.com/show/365855/user-circle-thin.svg' %>" alt="Profile Picture" class="profile-pic mb-3">
+    </div>
+
+  <!-- 📋 Profile Tabs -->
+  <div class="container mt-5">
+    <ul class="nav nav-tabs justify-content-center mb-3" id="profileTabs" role="tablist">
+      <li class="nav-item"><button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button">👤 Profile</button></li>
+      <li class="nav-item"><button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button">🎓 Education</button></li>
+      <li class="nav-item"><button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button">💡 Skills</button></li>
+      <li class="nav-item"><button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button">💼 Experience</button></li>
+      <li class="nav-item"><button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume" type="button">📄 Resume</button></li>
+      <li class="nav-item"><button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button">⚙ Settings</button></li>
+    </ul>
+
+    <div class="tab-content" id="profileTabsContent">
+      <!-- 🧍 Profile -->
+      <div class="tab-pane fade show active" id="profile">
+        <h4><i class="fa-solid fa-user"></i> Personal Information</h4>
+        <hr>
+        <p><strong>Name:</strong> <%= employee.name %></p>
+        <p><strong>Email:</strong> <%= employee.email %></p>
+        <p><strong>Phone:</strong> <%= employee.mobile %></p>
+        <p><strong>City:</strong> <%= employee.address %></p>
+        <p><strong>About:</strong> <%= employee.about || "Write a short bio about yourself." %></p>
+        <a href="/employee/edit_profile" class="btn btn-primary btn-sm mt-3"><i class="fa-solid fa-pen"></i> Edit Profile</a>
+      </div>
+
+      <!-- 🎓 Education -->
+      <div class="tab-pane fade" id="education">
+        <h4><i class="fa-solid fa-graduation-cap"></i> Education</h4>
+        <hr>
+        <p><%= employee.education || "No education details available." %></p>
+        <a href="employee/edit_education" class="btn btn-outline-primary btn-sm mt-2">+ Add Education</a>
+      </div>
+
+      <!-- 💡 Skills -->
+      <div class="tab-pane fade" id="skills">
+        <h4><i class="fa-solid fa-lightbulb"></i> Skills</h4>
+        <hr>
+        <p><%= employee.skills || "Add your skills here." %></p>
+        <a href="/employee/edit_skills" class="btn btn-outline-primary btn-sm mt-2">+ Add Skills</a>
+      </div>
+
+      <!-- 💼 Experience -->
+      <div class="tab-pane fade" id="experience">
+        <h4><i class="fa-solid fa-briefcase"></i> Experience</h4>
+        <hr>
+        <p><%= employee.experience || "No experience added yet." %></p>
+        <a href="/employee/edit_experience" class="btn btn-outline-primary btn-sm mt-2">+ Add Experience</a>
+      </div>
+
+      <!-- 📄 Resume -->
+      <div class="tab-pane fade" id="resume">
+        <h4><i class="fa-solid fa-file-pdf"></i> Resume</h4>
+        <hr>
+        <% if (employee.resume_link) { %>
+          <a href="<%= employee.resume_link %>" target="_blank" class="btn btn-success"><i class="fa-solid fa-download"></i> View Resume</a>
+        <% } else { %>
+          <p>No resume uploaded yet.</p>
+          <a href="/employee/upload_resume" class="btn btn-outline-primary btn-sm">Upload Resume</a>
+        <% } %>
+      </div>
+
+      <!-- ⚙ Settings -->
+      <div class="tab-pane fade" id="settings">
+        <h4><i class="fa-solid fa-gear"></i> Account Settings</h4>
+        <hr>
+        <a href="/employee/change_password" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-lock"></i> Change Password</a>
+        <a href="/logout" class="btn btn-outline-secondary btn-sm ms-2"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </div>
+    </div>
+  </div>
+<%-include("footer.ejs")%>
+ 
